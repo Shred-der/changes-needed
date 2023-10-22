@@ -1,0 +1,13 @@
+{
+  "name": "পণ্য",
+  "list": {
+    "pageTitle": "পণ্য তালিকা",
+    "tableActions": {
+      "create": "পণ্য তৈরি"
+    }
+  },
+  "form": {
+    "createTitle": "একটি পণ্য তৈরি করুন",
+    "updateTitle": "পণ্য হালনাগাদ করুন"
+  }
+}

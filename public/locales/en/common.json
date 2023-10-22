@@ -1,0 +1,15 @@
+{
+  "form": {
+    "cancel": "Cancel",
+    "submit": "Submit"
+  },
+  "authentication": {
+    "statusCheck": "Checking authentication status, please wait...",
+    "login": {
+      "greetings": "Greetings",
+      "message": "Click the LOGIN button below. You know you will be served better, right?!",
+      "action": "Login"
+    },
+    "logout": "Logout"
+  }
+}

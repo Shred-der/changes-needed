@@ -1,0 +1,13 @@
+{
+  "name": "Contacts",
+  "list": {
+    "pageTitle": "Contact List",
+    "tableActions": {
+      "create": "Create Contact"
+    }
+  },
+  "form": {
+    "createTitle": "Create a contact",
+    "updateTitle": "Update contact"
+  }
+}

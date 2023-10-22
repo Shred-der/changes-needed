@@ -1,0 +1,15 @@
+{
+  "form": {
+    "cancel": "Annuler",
+    "submit": "Envoyer"
+  },
+  "authentication": {
+    "statusCheck": "Vérification de l'état de l'authentification, veuillez patienter...",
+    "login": {
+      "greetings": "Salutations",
+      "message": "Cliquez sur le bouton CONNEXION ci-dessous. Vous savez que vous serez mieux servi, n'est-ce pas ?!",
+      "action": "Connexion"
+    },
+    "logout": "Se déconnecter"
+  }
+}

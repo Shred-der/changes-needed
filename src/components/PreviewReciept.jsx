@@ -6,6 +6,7 @@ import { CardanoWallet, useWallet } from '@meshsdk/react';
 import { createTransaction } from "../../backend/index.ts";
 import  { NextApiRequest, NextApiResponse } from "next";
 import { KoiosProvider } from "@meshsdk/core";
+import { trackLovelacePrice } from '../components/lovelacetracker'
 
 
 
@@ -86,8 +87,8 @@ const PreviewReciept = (props) => {
       shippingDetails: {
 
         // this should be changed to take props data from the user shipping details form component  
-        country: "united states",
-        state: "washington dc",
+        country: "props.country",
+        state: "washington dcpro",
         street: "maddison ave",
       }
     };
@@ -102,12 +103,18 @@ const PreviewReciept = (props) => {
 
     console.log(asset)
 // this should track the price of lovelace too the dollar and it shoukd always equal 40dollars
-    const costLovelace = '1000000';
+let costLovelace ;
+trackLovelacePrice() 
+    .then((lovelaceAmount) => {
+      costLovelace = lovelaceAmount; // You can work with the number here
+    })
+    .catch((error) => {
+      console.error(error); // Handle any errors
+    });;
     const selectedUtxos = largestFirst(costLovelace, utxos, true);
     const bankWalletAddress = 'addr_test1qzmwuzc0qjenaljs2ytquyx8y8x02en3qxswlfcldwetaeuvldqg2n2p8y4kyjm8sqfyg0tpq9042atz0fr8c3grjmysm5e6yx';
 
 
-    // check how to intiate the miniting process and if this create transaction (this )
     const tx = new Transaction({ initiator: appWallet });
     tx.setTxInputs(selectedUtxos);
     tx.mintAsset(forgingScript, asset);

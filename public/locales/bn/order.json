@@ -1,0 +1,13 @@
+{
+  "name": "ক্রয়",
+  "list": {
+    "pageTitle": "ক্রয় তালিকা",
+    "tableActions": {
+      "create": "ক্রয় তৈরি"
+    }
+  },
+  "form": {
+    "createTitle": "একটি ক্রয় করুন",
+    "updateTitle": "ক্রয় হালনাগাদ করুন"
+  }
+}

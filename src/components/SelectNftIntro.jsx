@@ -3,7 +3,7 @@ import {FaArrowRight, FaTimes} from "react-icons/fa"
 import {BsFillSkipEndFill} from "react-icons/bs"
 
 const SelectNftIntro = (props) => {
-  const textToType = "Your Namil Wallet was connected successfully. Click the button below to select the NFT you want to MINT 👍"
+  const textToType = "Your cardano Wallet was connected successfully. Click the button below to select the NFT you want to MINT 👍"
   const [displayText, setDisplayText] = useState("")
   const [hasSkipped, setHasSkipped] = useState(false)
 

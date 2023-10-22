@@ -1,0 +1,1 @@
+export interface IContact extends Record<string, any> {}

@@ -1,0 +1,13 @@
+{
+  "name": "Achats",
+  "list": {
+    "pageTitle": "Liste de achats",
+    "tableActions": {
+      "create": "Créer un achat"
+    }
+  },
+  "form": {
+    "createTitle": "Créer un achat",
+    "updateTitle": "Mettre jour un achat"
+  }
+}

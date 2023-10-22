@@ -1,0 +1,13 @@
+{
+  "name": "Orders",
+  "list": {
+    "pageTitle": "Order List",
+    "tableActions": {
+      "create": "Create Order"
+    }
+  },
+  "form": {
+    "createTitle": "Create a order",
+    "updateTitle": "Update order"
+  }
+}

@@ -1,0 +1,14 @@
+@import './variables';
+
+body {
+  min-height: 100vh;
+  background-color: aliceblue;
+  &.--dark-mode {
+    background-color: $dark-bg;
+  }
+  &.--reading-backdrop {
+    background: linear-gradient(0deg, rgb(217, 217, 255) 0.76%, rgba(208, 209, 255, 0));
+    background-repeat: no-repeat;
+  }
+  margin: 0;
+}
