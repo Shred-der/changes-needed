@@ -1,8 +1,8 @@
 import { GetStaticProps, NextPage } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
-import { ListPage } from '~/components/pages/ListPage'
-import { productListMetaGetter } from '~/meta/listMeta/product'
+import { ListPage } from '../../../src/components/pages/ListPage'
+import { productListMetaGetter } from '../../../src/meta/listMeta/product'
 
 const ProductList: NextPage = () => {
   const { t } = useTranslation('product')

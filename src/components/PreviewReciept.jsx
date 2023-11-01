@@ -2,25 +2,123 @@ import React, { useEffect, useState } from 'react'
 import {FaArrowLeft, FaArrowRight} from "react-icons/fa"
 import {AppWallet, AssetMetadata, Transaction, largestFirst, Mint, ForgeScript,
 } from '@meshsdk/core'
+import  { NextApiRequest, NextApiResponse } from "next";
 import { CardanoWallet, useWallet } from '@meshsdk/react';
 import { createTransaction } from "../../backend/index.ts";
-import  { NextApiRequest, NextApiResponse } from "next";
 import { KoiosProvider } from "@meshsdk/core";
-import { trackLovelacePrice } from '../components/lovelacetracker'
+import axios from 'axios';
+// import { trackLovelacePrice } from '../components/lovelacetracker.js';
+// import WebSocket from 'websocket';
+
+
+// 
+
+async function getADAPrice() {
+  try {
+    const response = await axios.get('https://discord.com/channels/@me/1070331054776397934/1167499388944384063');
+
+    if (response.status === 200) {
+      const adaPrice = response.data.cardano.usd;
+
+      const lovelaceAmount = 40 / adaPrice;
+      console.log(`The price of ADA is $${adaPrice}`);
+      return lovelaceAmount
+    } else {
+      console.log('Unable to fetch ADA price');
+    }
+  } catch (error) {
+    console.error('An error occurred:', error.message);
+  }
+}
+
+//   const ws = new WebSocket('https://discord.com/channels/@me/1070331054776397934/1167499388944384063');
+
+//   // Subscribe to the Lovelace price channel
+//   const subscribeMessage = {
+//     channel: 'lovelace_price',
+//     symbol: 'ADA'
+//   };
+//   ws.send(JSON.stringify(subscribeMessage));
+
+//   return new Promise((resolve, reject) => {
+//     ws.on('message', (response) => {
+//       // Receive price updates from the WebSocket connection
+//       const priceData = JSON.parse(response);
+
+//       // Extract the price of Lovelace from the received data
+//       const lovelacePrice = priceData.price;
+
+//       // Calculate the amount of Lovelace equivalent to 40 dollars
+//       const lovelaceAmount = 40 / lovelacePrice;
+
+//       // Return the amount of Lovelace always equal to 40 dollars
+//       resolve(lovelaceAmount);
+//     });
+
+//     ws.on('error', (error) => {
+//       reject(error);
+//     });
+//   });
+// }
+// import { post } from 'axios';
+// import FormData from 'form-data';
+// // import { createReadStream } from 'fs';
+
+
+
+// const JWT = process.env.PINAITA_JWT
+
+// const pinFileToIPFS = async () => {
+  //     const formData = new FormData();
+//     const src = "path/to/file.png";
+   
+//     // const file = createReadStream(src)
+//     const file = src
+//     formData.append('file', file)
+
+//     const pinataMetadata = JSON.stringify({
+//       name: 'File name',
+//     });
+//     formData.append('pinataMetadata', pinataMetadata);
+    
+//     const pinataOptions = JSON.stringify({
+//       cidVersion: 0,
+//     })
+    
+//     formData.append('pinataOptions', pinataOptions);
+
+//     try{
+//       const res = await post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
+//         maxBodyLength: "Infinity",
+//         headers: {
+//           'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+//           'Authorization': `Bearer ${JWT}`
+//         }
+//       });
+//       console.log(res.data);
+//     } catch (error) {
+//       console.log(error);
+//     }
+// }
+// pinFileToIPFS()
+// /*
 
 
 
 
+
+
+// https://rose-high-coral-142.mypinata.cloud
 
 
 
 const PreviewReciept = (props) => {
-
+  
   const { connected } = useWallet();
-
+  
   const wallet = props.wallet
 
-
+  
   // this function is to create the transaction (im not too sure but)
   const sendReciept = async (previewData)=>{
     console.clear()
@@ -69,7 +167,7 @@ const PreviewReciept = (props) => {
     const appWalletAddress = appWallet.getPaymentAddress();
     const forgingScript = ForgeScript.withOneSignature(appWalletAddress);
   
-
+    
     const assetName = "TX Reciept"
 
     // const [address, setAddress] = useState(null)
@@ -100,17 +198,19 @@ const PreviewReciept = (props) => {
       label: '721',
       recipient: recipientAddress,
     };
-
+    
     console.log(asset)
 // this should track the price of lovelace too the dollar and it shoukd always equal 40dollars
-let costLovelace ;
-trackLovelacePrice() 
-    .then((lovelaceAmount) => {
-      costLovelace = lovelaceAmount; // You can work with the number here
-    })
-    .catch((error) => {
-      console.error(error); // Handle any errors
-    });;
+// let costLovelace ;
+// trackLovelacePrice() 
+// .then((lovelaceAmount) => {
+  // costLovelace = lovelaceAmount; // You can work with the number here
+  // })
+  // .catch((error) => {
+    // console.error(error); // Handle any errors
+    // });;
+    // getADAPrice();
+    const costLovelace = getADAPrice()
     const selectedUtxos = largestFirst(costLovelace, utxos, true);
     const bankWalletAddress = 'addr_test1qzmwuzc0qjenaljs2ytquyx8y8x02en3qxswlfcldwetaeuvldqg2n2p8y4kyjm8sqfyg0tpq9042atz0fr8c3grjmysm5e6yx';
 

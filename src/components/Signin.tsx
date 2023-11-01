@@ -105,7 +105,7 @@ export default function SignIn(props:any) {
     })
   }
 
-  const blockfrostProvider = new BlockfrostProvider("preprodhKK2NwWOmIvFiT33Q4cIm29UfAS5nebE");
+  const blockfrostProvider = new BlockfrostProvider('mainnet50pMKefWQffC8MUvi6pD9dBZZH3RcDQB');
   const [showNftIntroI, setShowNftIntro] = useState(true)
 
   const [mintProcess, setMintProcess] = useState({
@@ -261,9 +261,9 @@ export default function SignIn(props:any) {
             const metadata: AssetMetadata = await blockfrostProvider.fetchAssetMetadata(asset.unit);
   
             // Fetch asset details from Blockfrost
-            const assetDetailsResponse = await fetch(`https://cardano-preprod.blockfrost.io/api/v0/assets/${asset.unit}`, {
+            const assetDetailsResponse = await fetch(`https://cardano-mainnet.blockfrost.io/api/v0/assets/${asset.unit}`, {
               headers: {
-                'project_id': "preprodhKK2NwWOmIvFiT33Q4cIm29UfAS5nebE"
+                'project_id': 'mainnet50pMKefWQffC8MUvi6pD9dBZZH3RcDQB'
               }
             });
             const assetDetails = await assetDetailsResponse.json();

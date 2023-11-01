@@ -1,8 +1,9 @@
-const Shipping = require('../models/Shipping');
+import Shipping from './shippingSchema';
 
 // POST /api/shipping
 const createShipping = async (req, res) => {
   try {
+    // this should get the shipping info from the user form
     const { name, address, city, country } = req.body;
 
     const shipping = new Shipping({
@@ -20,6 +21,6 @@ const createShipping = async (req, res) => {
   }
 };
 
-module.exports = {
+export default {
   createShipping
 };

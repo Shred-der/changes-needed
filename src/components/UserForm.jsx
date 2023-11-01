@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState }from 'react'
 import { FaArrowLeft } from 'react-icons/fa'
-import React, { useState } from 'react';
 import axios from 'axios';
+import { connectToDB } from "./db/connect"
 
+
+
+// trying to get the mongoose to send the get  request to trigger the db setup
 const ShippingForm = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -41,7 +44,7 @@ const ShippingForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="userForm">
       <label>
         Name:
         <input

@@ -5,8 +5,8 @@ import { useTranslation } from 'next-i18next'
 import { Box, Divider, List, ListItem, ListItemIcon, ListItemText, Paper, Typography } from '@mui/material'
 import { Label } from '@mui/icons-material'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { ThemeContext } from '../src/contexts/Theme'
-import { useBodyClass } from '../src/hooks/useBodyClass'
+import { ThemeContext } from '../../src/contexts/Theme'
+import { useBodyClass } from '../../src/hooks/useBodyClass'
 
 const About: NextPage = () => {
   const { t } = useTranslation('about')

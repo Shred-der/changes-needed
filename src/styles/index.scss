@@ -3378,3 +3378,19 @@ body{
         }
     }
 }
+.userForm{
+    margin: 2em;
+    padding: 1.5em;
+    // border: 2px solid whitesmoke;
+    input{
+        width: 32ch;
+        // aspect-ratio: 2/1;
+        padding: 1em;
+        border: none;
+        user-select: none;
+        margin-block: .5em;
+        border-bottom: 2px solid white;
+        background: inherit;
+        outline: none;
+    }
+}
